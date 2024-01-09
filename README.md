@@ -8,7 +8,7 @@ Add a `rescue_from` block to your controller to rescue `APIException` exceptions
 
 ```ruby
 class ApplicationController < ActionController::API
-  rescue_from APIErrors::APIError do |e|
+  rescue_from Railerr::APIException do |e|
     render json: { error: e.message }.to_json, status: e.status_code
   end
 end
