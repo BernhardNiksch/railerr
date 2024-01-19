@@ -21,10 +21,40 @@ module Railerr
     end
   end
 
+  # Raised for HTTP 502 Bad Gateway
+  class BadGatewayError < APIException
+    DEFAULT_MESSAGE = 'Bad gateway'
+    STATUS_CODE = Status::HTTP_502_BAD_GATEWAY
+  end
+
   # Raised for HTTP 400 Bad Request
   class BadRequestError < APIException
     DEFAULT_MESSAGE = 'Bad request'
     STATUS_CODE = Status::HTTP_400_BAD_REQUEST
+  end
+
+  # Raised for HTTP 409 Conflict
+  class ConflictError < APIException
+    DEFAULT_MESSAGE = 'Conflict'
+    STATUS_CODE = Status::HTTP_409_CONFLICT
+  end
+
+  # Raised for HTTP 403 Forbidden
+  class ForbiddenError < APIException
+    DEFAULT_MESSAGE = 'Forbidden'
+    STATUS_CODE = Status::HTTP_403_FORBIDDEN
+  end
+
+  # Raised for HTTP 504 Gateway Timeout
+  class GatewayTimeoutError < APIException
+    DEFAULT_MESSAGE = 'Gateway timeout'
+    STATUS_CODE = Status::HTTP_504_GATEWAY_TIMEOUT
+  end
+
+  # Raised for HTTP 418 I'm A Teapot
+  class ImATeapotError < APIException
+    DEFAULT_MESSAGE = "I'm a teapot"
+    STATUS_CODE = Status::HTTP_418_IM_A_TEAPOT
   end
 
   # Raised for HTTP 500 Internal Server Errors
@@ -42,6 +72,24 @@ module Railerr
   class NotFoundError < APIException
     DEFAULT_MESSAGE = 'Not found'
     STATUS_CODE = Status::HTTP_404_NOT_FOUND
+  end
+
+  # Raised for HTTP 408 Request Timeout
+  class RequestTimeoutError < APIException
+    DEFAULT_MESSAGE = 'Request timeout'
+    STATUS_CODE = Status::HTTP_408_REQUEST_TIMEOUT
+  end
+
+  # Raised for HTTP 503 Service Unavailable
+  class ServiceUnavailableError < APIException
+    DEFAULT_MESSAGE = 'Service unavailable'
+    STATUS_CODE = Status::HTTP_503_SERVICE_UNAVAILABLE
+  end
+
+  # Raised for HTTP 401 Unauthorized
+  class UnauthorizedError < APIException
+    DEFAULT_MESSAGE = 'Unauthorized'
+    STATUS_CODE = Status::HTTP_401_UNAUTHORIZED
   end
 
   # Raised for HTTP 422 Unprocessable Content
